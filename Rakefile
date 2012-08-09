@@ -21,11 +21,11 @@ spec = Gem::Specification.new do |s|
 
   # Change these as appropriate
   s.name              = "bandcamp-rb"
-  s.version           = "0.1.1"
+  s.version           = "0.2.1"
   s.summary           = "Simple wrapper around Bandcamp.com API v1-3"
-  s.author            = "Jason Cale"
-  s.email             = "jase@gofreerange.com"
-  s.homepage          = "http://gofreerange.com"
+  s.authors           = ["Jason Cale", "Tinynumbers"]
+  s.email             = ["jase@gofreerange.com", "info@tinynumbers.com"]
+  s.homepage          = "https://github.com/jasoncale/bandcamp-rb"
 
   s.has_rdoc          = false
   # You should probably have a README of some kind. Change the filename
