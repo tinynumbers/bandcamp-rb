@@ -73,7 +73,7 @@ class BandTest < Test::Unit::TestCase
     end
     
     should "have a release date" do
-      assert_equal("Tue Sep 16 01:00:00 +0100 2008", @album.release_date.to_s)
+      assert_equal("Mon Sep 15 20:00:00 -0400 2008", @album.release_date.to_s)
     end
     
     should "have a description (about)" do
@@ -85,11 +85,11 @@ class BandTest < Test::Unit::TestCase
     end
     
     should "have url to small version of artwork" do
-      assert_equal("http://bandcamp.com/files/33/09/3309055932-1.jpg", @album.small_art_url)
+      assert_equal("http://f0.bcbits.com/z/33/09/3309055932-1.jpg", @album.small_art_url)
     end
     
     should "have url to large version of artwork" do
-      assert_equal("http://bandcamp.com/files/41/81/41814958-1.jpg", @album.large_art_url)      
+      assert_equal("http://f0.bcbits.com/z/41/81/41814958-1.jpg", @album.large_art_url)      
     end
     
     should "set an album id" do
@@ -101,24 +101,25 @@ class BandTest < Test::Unit::TestCase
       assert_equal("Amanda Palmer", @album.band.name)
     end
     
-    should "have any specific artist information" do
-      # this has been added to the fixture as the response from
-      # band camp doesn't include this information...
-      assert_equal("John Finn", @album.artist)      
-    end
+    # should "have any specific artist information" do
+    #   # this has been added to the fixture as the response from
+    #   # band camp doesn't include this information...
+    #   assert_equal("John Finn", @album.artist)      
+    # end
     
-    should "have a downloadable id" do
-      assert_equal(2, @album.downloadable)
-    end
+    # --- The actual response from Album API v2 does NOT return downloadable at the album level...?
+    # should "have a downloadable id" do
+    #   assert_equal(2, @album.downloadable)
+    # end
     
     should "have a url" do
-      assert_equal("http://music.amandapalmer.net/album/who-killed-amanda-palmer", @album.url)
+      assert_equal("http://music.amandapalmer.net/album/who-killed-amanda-palmer?pk=564", @album.url)
     end
   end
   
   context "A track" do
     setup do
-      stub_json_request("http://api.bandcamp.com/api/track/1/info?track_id=1269403107&key=SECRET_API_KEY", "track")
+      stub_json_request("http://api.bandcamp.com/api/track/3/info?track_id=1269403107&key=SECRET_API_KEY", "track")
       Bandcamp::Base.api_key = 'SECRET_API_KEY'
       
       @track = Bandcamp::Track.load("1269403107")
@@ -159,7 +160,7 @@ class BandTest < Test::Unit::TestCase
     end
     
     should "have streaming url" do
-      assert_equal("http://popplers5.bandcamp.com/download/track?enc=mp3-128&id=1269403107&stream=1&ts=1298800847.0&tsig=67543bb7f276035915039c5545744d3b", @track.streaming_url)
+      assert_equal("http://popplers5.bandcamp.com/download/track?enc=mp3-128&fsig=3a0b370d212744b9ec8ac2f47e6a8a60&id=1269403107&stream=1&ts=1344470703.0", @track.streaming_url)
     end
     
     should "have track id" do

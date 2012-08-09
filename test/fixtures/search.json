@@ -1,18 +1,18 @@
 {
   "results": [
     {
-      "offsite_url": "http:\/\/www.baronvonluxxury.com",
-      "name": "Baron von Luxxury",
-      "url": "http:\/\/luxxury.bandcamp.com",
       "subdomain": "luxxury",
-      "band_id": 1366501350
+      "url": "http://luxxury.bandcamp.com",
+      "name": "Baron von Luxxury",
+      "band_id": 1366501350,
+      "offsite_url": "http://www.baronvonluxxury.com"
     },
     {
-      "offsite_url": null,
-      "name": "Baron Von Luxxury",
-      "url": "http:\/\/baronvonluxxury.bandcamp.com",
       "subdomain": "baronvonluxxury",
-      "band_id": 3773098762
+      "url": "http://baronvonluxxury.bandcamp.com",
+      "name": "Baron Von Luxxury",
+      "band_id": 3773098762,
+      "offsite_url": "http://baronvonluxxury.com"
     }
   ]
 }
