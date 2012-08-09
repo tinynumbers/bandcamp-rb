@@ -95,7 +95,8 @@ module Bandcamp
   
   class Track < Base
     attr_reader :lyrics, :downloadable, :duration, :about, :album_id, :credits,
-                :streaming_url, :number, :title, :url, :track_id, :band_id
+                :streaming_url, :number, :title, :url, :track_id, :band_id,
+                :release_date, :small_art_url, :large_art_url, :artist
     
     def initialize(track)
       @lyrics        = track['lyrics']
@@ -110,6 +111,10 @@ module Bandcamp
       @url           = track['url']
       @track_id      = track['track_id']
       @band_id       = track['band_id']
+      @release_date  = Time.at(track['release_date']) if track['release_date']
+      @small_art_url = track['small_art_url']
+      @large_art_url = track['large_art_url']
+      @artist        = track['artist'] if track['artist']
     end
     
     def album
@@ -122,7 +127,7 @@ module Bandcamp
     
     class << self
       def load(id)
-        response = get("/track/1/info", :query => { :key => Bandcamp::Base.api_key, :track_id => id })
+        response = get("/track/3/info", :query => { :key => Bandcamp::Base.api_key, :track_id => id })
         new(response) if response
       end
     end
